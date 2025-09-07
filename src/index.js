@@ -14,7 +14,7 @@ class Board {
     for (let i = 0; i < this.size * this.size; i++) {
       const cell = document.createElement('div');
       cell.classList.add('cell');
-      this.element.appendChild(cell);
+      this.element.append(cell);
       this.cells.push(cell);
     }
   }
@@ -36,14 +36,14 @@ class Goblin {
     img.classList.add('goblin');
     img.addEventListener('click', () => {
       this.onHit();
-      cell.removeChild(img);
+      cell.remove(img);
     });
-    cell.appendChild(img);
+    cell.append(img);
     this.currentCell = cell;
 
     setTimeout(() => {
       if (cell.contains(img)) {
-        cell.removeChild(img);
+        cell.remove(img);
         this.onMissed();
       }
     }, 1000);
